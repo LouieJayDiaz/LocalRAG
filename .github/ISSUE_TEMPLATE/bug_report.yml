@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a reproducible problem with LocalRAG
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please don't attach private files, database files, prompts, or secrets.
+        Remove private paths and content from anything you post.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: What did you expect, and what actually happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Start LocalRAG and your model app.
+        2. Add a document.
+        3. Ask a question and describe what happened.
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Include Windows, Python, LocalRAG, Ollama, and model versions.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs or screenshots
+      description: Redact private content before posting. 

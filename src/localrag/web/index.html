@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LocalRAG</title>
+  <link rel="stylesheet" href="/web.css?v=2">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/">Local<span>RAG</span></a>
+      <p class="eyebrow">KNOWLEDGE BASE</p>
+      <label class="upload-button">
+        <input id="file-input" type="file" accept=".txt,.md,.pdf,.docx" multiple>
+        <span>&plus; Add files</span>
+      </label>
+      <label class="upload-button secondary-upload">
+        <input id="folder-input" type="file" accept=".txt,.md,.pdf,.docx" webkitdirectory directory multiple>
+        <span>&plus; Add folder</span>
+      </label>
+      <p class="file-help">TXT, MD, PDF, or DOCX</p>
+      <div class="sidebar-section">
+        <div class="section-heading">
+          <span>INDEXED FILES</span>
+          <span id="document-count" class="count">0</span>
+        </div>
+        <ul id="document-list" class="document-list"></ul>
+      </div>
+      <button id="clear-button" class="quiet-button" type="button">&times; Clear index</button>
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span id="connection-status">Checking local providers...</span>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR FILES</p>
+          <h1>Ask a question about your files.</h1>
+        </div>
+        <div class="model-control">
+          <label for="model-select">MODEL</label>
+          <select id="model-select"><option value="">No model selected</option></select>
+          <button id="refresh-models" class="icon-button" type="button" title="Scan local model providers">&#8635;</button>
+          <a class="models-button" href="https://ollama.com/library" target="_blank" rel="noreferrer">Ollama models &#8599;</a>
+          <a class="models-button secondary-model-link" href="https://lmstudio.ai/models" target="_blank" rel="noreferrer">LM Studio &#8599;</a>
+        </div>
+      </header>
+      <section id="model-panel" class="model-panel" hidden>
+        <div class="model-panel-header">
+          <div><h2>Models on this computer</h2><p>Install or load a model in Ollama or LM Studio, then scan again.</p></div>
+          <button id="close-model-panel" class="icon-button" type="button">&times;</button>
+        </div>
+        <div id="provider-list" class="provider-list"></div>
+        <div class="provider-links">
+          <a href="https://ollama.com/library" target="_blank" rel="noreferrer">Browse Ollama models &#8599;</a>
+          <a href="https://lmstudio.ai/models" target="_blank" rel="noreferrer">Browse LM Studio models &#8599;</a>
+        </div>
+        <p id="scan-status" class="download-status"></p>
+      </section>
+      <section id="conversation" class="conversation">
+        <div id="welcome" class="welcome">
+          <div class="welcome-mark">&#10022;</div>
+          <h2>What can I help you find?</h2>
+          <p>Add some documents, then ask a question about them.</p>
+        </div>
+      </section>
+      <form id="chat-form" class="composer">
+        <textarea id="question" placeholder="Ask anything about your documents..." rows="1" required></textarea>
+        <button id="send-button" type="submit">Send <span>&#8599;</span></button>
+      </form>
+      <p id="message" class="message" role="status"></p>
+      <footer><span>Runs on your computer</span><span>Using Ollama or LM Studio</span></footer>
+    </main>
+  </div>
+  <script src="/web.js?v=3"></script>
+</body>
+</html>
