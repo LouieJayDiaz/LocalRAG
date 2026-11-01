@@ -35,9 +35,6 @@ on Linux). Uploads can be up to 25 MB each. **Clear index** removes the index
 and those uploaded copies. It doesn't remove the original files from your
 computer.
 
-To build the Windows desktop executable, run `build_exe.ps1` in PowerShell
-after installing Python 3.11 or newer. The output is `dist\LocalRAG.exe`.
-
 ## Search options
 
 By default, LocalRAG uses a basic SQLite search. To use ChromaDB and Ollama's
